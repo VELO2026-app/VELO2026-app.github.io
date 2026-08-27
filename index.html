@@ -1076,17 +1076,17 @@ function SlideMoney({ active }) {
 function SlideFinModel({ active }) {
   const s1 = useAnimIn(15, active ? 15 : -1, 200);
   const rows = [
-    { m: "MAU EOY Y1 (Jun 2027)", a: "28,443", b: "28,443" },
-    { m: "MAU EOY Y2 (Jun 2028)", a: "65,114", b: "40,294" },
-    { m: "MAU EOY Y3 (Jun 2029)", a: "93,687", b: "62,624" },
-    { m: "Paying users EOY Y3", a: "8,110 (8.7% MAU)", b: "5,005 (8.0% MAU)" },
+    { m: "MAU EOY Y1 (Jun 2027)", a: "28,217", b: "28,217" },
+    { m: "MAU EOY Y2 (Jun 2028)", a: "69,545", b: "61,654" },
+    { m: "MAU EOY Y3 (Jun 2029)", a: "92,469", b: "83,703" },
+    { m: "Paying users EOY Y3", a: "7,432 (8.0% MAU)", b: "6,715 (8.0% MAU)" },
     { m: "Masters EOY Y3", a: "1,200", b: "1,200" },
-    { m: "3Y Revenue", a: "$4.60M", b: "$3.11M" },
-    { m: "3Y EBITDA", a: "\u2212$0.70M", b: "\u2212$0.32M" },
-    { m: "3Y Marketing spend", a: "$3.22M", b: "$1.47M" },
-    { m: "Peak cash trough", a: "$93K (Y2Q4)", b: "$1.09M (Y3Q3)" },
-    { m: "Cash at EOY Y3", a: "$0.96M", b: "$1.34M" },
-    { m: "EBITDA-positive quarter", a: "Q1 2029 (Y3Q1)", b: "Q1 2028 (Y2Q3)" },
+    { m: "3Y Revenue", a: "$4.34M", b: "$4.06M" },
+    { m: "3Y EBITDA", a: "\u2212$0.68M", b: "\u2212$0.29M" },
+    { m: "3Y Marketing spend", a: "$2.62M", b: "$1.97M" },
+    { m: "Peak cash trough", a: "$0.31M (Y3Q1)", b: "$0.92M (Y3Q2)" },
+    { m: "Cash at EOY Y3", a: "$0.98M", b: "$1.37M" },
+    { m: "EBITDA-positive quarter", a: "Q4 2028 (Y3Q2)", b: "Q2 2028 (Y2Q4)" },
   ];
   return (
     <SlideBg>
@@ -1130,14 +1130,14 @@ function SlideFinModel({ active }) {
 function SlideYearly({ active }) {
   const s1 = useAnimIn(16, active ? 16 : -1, 200);
   const pathA = [
-    { m: "Revenue", y1: "$0.12M", y2: "$1.37M", y3: "$3.11M" },
-    { m: "EBITDA", y1: "\u2212$0.34M", y2: "\u2212$1.23M", y3: "$0.87M" },
-    { m: "End-period cash", y1: "$1.32M", y2: "$0.34M", y3: "$0.96M" },
+    { m: "Revenue", y1: "$0.13M", y2: "$1.32M", y3: "$2.89M" },
+    { m: "EBITDA", y1: "\u2212$0.53M", y2: "\u2212$0.76M", y3: "$0.61M" },
+    { m: "End-period cash", y1: "$1.13M", y2: "$0.37M", y3: "$0.98M" },
   ];
   const pathB = [
-    { m: "Revenue", y1: "$0.12M", y2: "$0.78M", y3: "$2.21M" },
-    { m: "EBITDA", y1: "\u2212$0.34M", y2: "$0.07M", y3: "\u2212$0.05M" },
-    { m: "End-period cash", y1: "$1.32M", y2: "$1.39M", y3: "$1.34M" },
+    { m: "Revenue", y1: "$0.13M", y2: "$1.22M", y3: "$2.71M" },
+    { m: "EBITDA", y1: "\u2212$0.53M", y2: "\u2212$0.15M", y3: "$0.39M" },
+    { m: "End-period cash", y1: "$1.13M", y2: "$0.98M", y3: "$1.37M" },
   ];
   const renderTable = (title, rows) => (
     <div style={{ overflowX: "auto", background: C.white, borderRadius: 16, border: `1px solid ${C.bluePale}40`, padding: 2, marginBottom: 14 }}>
@@ -1263,61 +1263,6 @@ function SlidePricing({ active }) {
   );
 }
 
-
-// 11b: Allocation of funds (Приложение 2)
-function SlideAllocation({ active }) {
-  const s1 = useAnimIn(14, active ? 14 : -1, 200);
-  const rows = [
-    { cat: "Команда (базовая команда + найм Y1/Y2)", a: "$1.45M", b: "$1.44M", note: "Год 1: основатель, CPO, аналитик, 2 senior-разработчика, методолог, юридический и финансовый советник, биздев\nГод 2 (дополнит.): Data-инженер, senior-разработчик" },
-    { cat: "Штатные мастера (3 с Y3)", a: "$0.14M", b: "$0.07M", note: "$2K/мес × 3 × 12 мес" },
-    { cat: "AI-инфраструктура", a: "$0.03M", b: "$0.02M", note: "С учётом уровня и фазы, скидка 30% при семантическом кэшировании" },
-    { cat: "Маркетинг (платный + бренд)", a: "$3.22M", b: "$1.47M", note: "Год 1–2: только бренд ($5K → $5K/мес)\nГод 3: основной платный ramp ($250K → $350K/Q)" },
-    { cat: "Переменные операционные расходы (CS, модерация, хостинг)", a: "$0.45M", b: "$0.43M", note: "$6 / 100 MAU / mo CS;\nЕжеквартальный аудит масштабирования + инфраструктура" },
-  ];
-  const total = { cat: "Итого затраты за 3 года", a: "$5.30M", b: "$3.43M", note: "Формируется из:\n1) привлеченные инвестиции $1.5M\n2) вложения фаундера\n3) выручка за 3 года" };
-  return (
-    <SlideBg>
-      <div style={{ maxWidth: 980, width: "94%", padding: "0 20px" }}>
-        <AD show={s1}>
-          <h2 style={{ fontFamily: FONT, fontSize: "clamp(28px, 3.5vw, 40px)", fontFeatureSettings: '"lnum"', color: C.navy, fontWeight: 400, marginBottom: 6 }}>ПРИЛОЖЕНИЕ 3. РАСПРЕДЕЛЕНИЕ СРЕДСТВ</h2>
-          <p style={{ fontFamily: FONT_SANS, fontSize: 13, color: C.navyLight, fontWeight: 600, letterSpacing: 1, textTransform: "uppercase", marginBottom: 16 }}>На 3 года · сравнение двух путей</p>
-        </AD>
-        <AD show={useAnimIn(14, active ? 14 : -1, 400)} delay={200}>
-          <div style={{ overflowX: "auto", background: C.white, borderRadius: 16, border: `1px solid ${C.bluePale}40`, padding: 2 }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: FONT_SANS }}>
-              <thead>
-                <tr style={{ borderBottom: `2px solid ${C.bluePale}` }}>
-                  <th style={{ padding: "12px 14px", textAlign: "left", fontSize: 13, fontWeight: 600, color: C.navy, width: "32%" }}>Категория</th>
-                  <th style={{ padding: "12px 14px", textAlign: "center", fontSize: 13, fontWeight: 600, color: C.navy, width: "11%" }}>Путь A</th>
-                  <th style={{ padding: "12px 14px", textAlign: "center", fontSize: 13, fontWeight: 600, color: C.navy, width: "11%" }}>Путь B</th>
-                  <th style={{ padding: "12px 14px", textAlign: "left", fontSize: 13, fontWeight: 600, color: C.navy }}>Комментарий</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((r, i) => (
-                  <tr key={i} style={{ borderBottom: `1px solid ${C.ice}`, transition: "background 0.2s" }}
-                    onMouseEnter={e => e.currentTarget.style.background = C.ice + '60'}
-                    onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
-                    <td style={{ padding: "10px 14px", fontSize: 12.5, color: C.textSoft, fontWeight: 400, lineHeight: 1.45 }}>{r.cat}</td>
-                    <td style={{ padding: "10px 14px", textAlign: "center", fontSize: 13, fontWeight: 600, color: C.navy, fontFeatureSettings: '"lnum"' }}>{r.a}</td>
-                    <td style={{ padding: "10px 14px", textAlign: "center", fontSize: 13, fontWeight: 600, color: C.navy, fontFeatureSettings: '"lnum"' }}>{r.b}</td>
-                    <td style={{ padding: "10px 14px", fontSize: 12.5, color: C.textSoft, fontWeight: 400, lineHeight: 1.5, whiteSpace: "pre-line" }}>{r.note}</td>
-                  </tr>
-                ))}
-                <tr style={{ borderTop: `2px solid ${C.bluePale}`, background: C.ice + '40' }}>
-                  <td style={{ padding: "12px 14px", fontSize: 13, color: C.navy, fontWeight: 600, lineHeight: 1.45 }}>{total.cat}</td>
-                  <td style={{ padding: "12px 14px", textAlign: "center", fontSize: 14, fontWeight: 700, color: C.navyLight, fontFeatureSettings: '"lnum"' }}>{total.a}</td>
-                  <td style={{ padding: "12px 14px", textAlign: "center", fontSize: 14, fontWeight: 700, color: C.navyLight, fontFeatureSettings: '"lnum"' }}>{total.b}</td>
-                  <td style={{ padding: "12px 14px", fontSize: 13, color: C.navy, fontWeight: 600, lineHeight: 1.5, whiteSpace: "pre-line" }}>{total.note}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </AD>
-      </div>
-    </SlideBg>
-  );
-}
 
 // 11: Team Core
 function SlideTeam({ active }) {
@@ -1641,7 +1586,6 @@ const SLIDES = [
   { component: SlideAdvisors, label: "Эксперты" },
   { component: SlidePricing, label: "Тарифы" },
   { component: SlideYearly, label: "Годовые прогнозы" },
-  { component: SlideAllocation, label: "Распределение средств" },
   { component: SlideContacts, label: "Контакты" },
 ];
 
